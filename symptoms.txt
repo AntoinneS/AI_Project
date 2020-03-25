@@ -1,0 +1,15 @@
+Fever 
+Headache 
+Vomiting 
+Nausea 
+Fatigue 
+Rash
+Joint Pain 
+Eye Pain 
+Difficulty breathing 
+Muscle Pain 
+Pale Skin
+Stomach Pain 
+Drowsiness 
+Irritability 
+ 
