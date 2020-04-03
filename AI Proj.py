@@ -1,9 +1,9 @@
 import datetime
 from tkinter import *
 import tkinter.messagebox
-from datetime import date
+from datetime import date # Library to get current date
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # Library for graph
 global patcount
 global riskcount
 global reportcount
@@ -149,7 +149,7 @@ class MyWindow:
         print(" ")
         print("****************DIAGNOSIS******************")
 
-
+        #Reads symptoms file line by line and check if user input is a symptom
         with open('symptoms.txt') as f:
             datafile = f.readlines()
 
@@ -246,6 +246,7 @@ class MyWindow:
 
             f.close()
 
+        #Converts celsius to farhenheit
         far = patienttemp * 9/5 + 32
         if patienttemp > 37:
             points += 1
@@ -255,7 +256,7 @@ class MyWindow:
         else:
             print("Your temperature is not normal (%i" %(far)+'°F)')
 
-
+        #Write data to file you're at risk you are
         if points >= 7:
             print("You have severe Dengue")
             reportcount = reportcount + 1
@@ -323,6 +324,7 @@ class MainWindow:
         top.geometry("500x400+20+20")
         top.mainloop()
 
+    #Display Report
     def report(self):
         january = '2020-01-'
         february = '2020-02-'
@@ -361,6 +363,7 @@ class MainWindow:
         dectot = 0
         rdectot = 0
 
+        #Gets data from patient file and counts how many patients in each month
         with open('patient.txt') as filly:
             linechart = filly.readlines()
         for line in linechart:
@@ -390,6 +393,7 @@ class MainWindow:
                 dectot += 1
         filly.close()
 
+        #Counts at risk patients per month
         with open('riskpatient.txt') as fil:
             linechart = fil.readlines()
         for line in linechart:
@@ -443,6 +447,7 @@ class MainWindow:
         plt.tight_layout()
         plt.show()
 
+    # Display Query
     def query(self):
         global patcount
         global riskcount
@@ -458,6 +463,7 @@ class MainWindow:
                 riskcount += 1
         f.close()
 
+        #Calculates percentage of patients at risk
         totalperc = riskcount / patcount * 100
         print ("The total Percentage of people at risk of Dengue Fever is %i" %(round(totalperc))+'%')
 
